@@ -61,7 +61,8 @@ back-end to handle something, much like products, then we end up stagnant becaus
 
 ### Demonstration
 
-_Video pending..._
+![Relay demonstration](demo/relay-mvp.gif)
+[_Watch a decent quality version here_](demo/relay-mvp.mp4)
 
 ### Outcome
 
