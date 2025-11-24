@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	<div class="landing-wrap">
+		<div class="container h-dvh max-w-6xl mx-auto flex gap-30 justify-between items-center">
+			{% block content %}{% endblock %}
+
+			<div class="flex flex-wrap max-w-[50%] gap-6">
+				{{ component('Statistic', {
+					colour: enum('\\App\\Support\\Twig\\Components\\Statistic\\Colour').Light,
+					size: enum('\\App\\Support\\Twig\\Components\\Statistic\\Size').Wide,
+					number: '2,468',
+					label: 'Merged commits'
+				}) }}
+
+				{{ component('Statistic', {
+					colour: enum('\\App\\Support\\Twig\\Components\\Statistic\\Colour').Dark,
+					number: '14',
+					label: 'Pull requests'
+				}) }}
+
+				{{ component('Statistic', {
+					colour: enum('\\App\\Support\\Twig\\Components\\Statistic\\Colour').Dark,
+					number: '128',
+					label: 'Contributors'
+				}) }}
+
+				{{ component('Statistic', {
+					colour: enum('\\App\\Support\\Twig\\Components\\Statistic\\Colour').Light,
+					size: enum('\\App\\Support\\Twig\\Components\\Statistic\\Size').Wide,
+					number: '65,000+',
+					label: 'Lines of code'
+				}) }}
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

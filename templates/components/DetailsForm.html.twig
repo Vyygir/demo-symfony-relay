@@ -1,0 +1,37 @@
+<div {{ attributes }}>
+	{{ form_start(form, {
+		'attr': {
+			'class': 'relative',
+			'data-action': 'live#action:prevent',
+			'data-live-action-param': 'submit',
+		}
+	}) }}
+		{{ form_errors(form) }}
+
+		<div class="grid grid-cols-2 gap-5 w-full">
+			{{ form_row(form.forename) }}
+			{{ form_row(form.surname) }}
+			{{ form_row(form.email) }}
+			{{ form_row(form.phone) }}
+			{{ form_row(form.existingCustomer, {'row_attr': {'class': 'col-span-2'}}) }}
+			{{ form_row(form.company) }}
+			{{ form_row(form.role) }}
+			{{ form_row(form.country, {'row_attr': {'class': form.employees is not defined ? 'col-span-2' : ''}}) }}
+
+			{% if form.employees is defined %}
+				{{ form_row(form.employees) }}
+			{% endif %}
+
+			{{ form_row(form.comments, {'row_attr': {'class': 'col-span-2'}}) }}
+		</div>
+
+		<div class="flex gap-4 items-center">
+			<p class="m-0 text-sm flex-1">This form is only a test form. Your data is safe and will definitely not be stolen. Probably.</p>
+			{{ form_widget(form.submit, {'attr': {'class': '!w-auto shrink-0 px-4'}}) }}
+		</div>
+
+		<div data-loading="action(submit)|show">
+			<twig:LoadingOverlay />
+		</div>
+	{{ form_end(form) }}
+</div>

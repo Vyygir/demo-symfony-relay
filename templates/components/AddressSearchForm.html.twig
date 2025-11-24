@@ -1,0 +1,63 @@
+<div {{ attributes }}>
+	{{ form_start(form, {
+		attr: {
+			'data-action': 'live#action:prevent',
+			'data-live-action-param': 'submit',
+		}
+	}) }}
+		{{ form_errors(form) }}
+
+		<div
+			class="w-full relative"
+			data-action="focusin->live#action focusout->live#action"
+			data-live-action-param="handleFocus"
+			data-live-focused-param="true"
+		>
+			<div class="relative">
+				<input
+					type="text"
+					required
+					placeholder="10 Downing Street"
+					data-model="debounce(300)|query"
+					autocomplete="off"
+				/>
+
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					class="absolute right-5 top-1/2 -translate-y-1/2 size-5 animate-spin text-slate-600"
+					style="display: none;"
+					data-loading="model(query)|show"
+				>
+					<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+					<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+				</svg>
+			</div>
+
+			{% if results | length > 0 and isFocused %}
+				<ul class="bg-white w-full max-h-[228px] overflow-scroll px-2 py-1 rounded-md mt-2 absolute top-full shadow-lg shadow-black/30">
+					{% for location in results %}
+						<li class="my-1">
+							<button
+								type="button"
+								data-action="live#action"
+								data-live-action-param="selectAddress"
+								data-live-location-param="{{ location|serialize }}"
+								class="block w-full rounded-sm px-2 py-1 text-left text-sm hover:bg-slate-100 hover:cursor-pointer"
+							>
+								{{ location.address }}, {{ location.city }}, {{ location.country }}
+							</button>
+						</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		</div>
+
+		{{ form_widget(form.location) }}
+		<button type="submit">Check</button>
+	{{ form_end(form) }}
+
+	<div data-loading="action(submit)|show">
+		<twig:LoadingOverlay />
+	</div>
+</div>

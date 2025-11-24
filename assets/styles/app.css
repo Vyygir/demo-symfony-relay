@@ -1,3 +1,133 @@
-body {
-    background-color: skyblue;
+@import "tailwindcss";
+
+@theme {
+	--font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility animation-delay-* {
+	animation-delay: --value(integer)ms;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation-duration: 0.25s;
+}
+
+.landing-wrap {
+    background-image: url('../images/background.jpg');
+	background-size: cover;
+	background-position: center center;
+}
+
+form {
+	@apply flex flex-wrap gap-5;
+
+	select,
+	textarea,
+	input[type="text"],
+	input[type="date"],
+	input[type="email"],
+	input[type="number"],
+	input[type="tel"],
+	input[type="password"],
+	input[type="search"],
+	button[type="submit"] {
+		@apply block w-full;
+		@apply rounded-[4px];
+	}
+
+	input, select, textarea {
+		@apply bg-neutral-100;
+		@apply py-3.75 px-4 border-1 border-neutral-200;
+		@apply text-zinc-700 placeholder:text-zinc-400;
+		@apply focus:outline-none focus:border-slate-400;
+	}
+
+	button[type="submit"] {
+		@apply bg-slate-600;
+		@apply py-3;
+		@apply font-semibold text-lg tracking-wide text-white;
+		@apply hover:cursor-pointer hover:bg-slate-700;
+		@apply disabled:bg-slate-400 disabled:cursor-not-allowed disabled:pointer-events-none;
+	}
+}
+
+form.form {
+	.field > label {
+		@apply block mb-1.5 font-[500];
+	}
+
+	.field input[type="text"],
+	.field input[type="date"],
+	.field input[type="email"],
+	.field input[type="number"],
+	.field input[type="tel"],
+	.field input[type="password"],
+	.field input[type="search"],
+	.field select {
+		@apply h-[48px];
+	}
+
+	.field--choice .choices {
+		@apply flex gap-6;
+	}
+
+	.field--choice .choice label {
+		@apply font-[500];
+	}
+}
+
+.button {
+	@apply block rounded-[4px];
+	@apply px-4 py-2;
+	@apply text-center font-semibold text-white;
+	@apply transition-all;
+}
+
+.button--default {
+	@apply bg-slate-600;
+	@apply hover:bg-slate-700;
+}
+
+.button--dim {
+	@apply bg-zinc-200 text-zinc-500;
+	@apply hover:bg-zinc-300;
+}
+
+.button--large {
+	@apply rounded-[6px];
+	@apply px-5 py-3;
+	@apply text-xl;
+}
+
+.product {
+	@apply bg-zinc-100 rounded-md;
+	@apply cursor-pointer;
+
+	input[type="checkbox"] {
+		@apply hidden;
+	}
+
+	input[type="checkbox"]:checked + label:not(:hover) {
+		@apply inset-ring-2 inset-ring-slate-500;
+	}
+
+	& > label {
+		@apply block p-5 rounded-md;
+		@apply hover:cursor-pointer hover:inset-ring-3 hover:inset-ring-slate-500;
+		@apply transition-all;
+	}
+
+	.product__name,
+	.product__description {
+		@apply block;
+	}
+
+	.product__name {
+		@apply font-bold text-2xl;
+	}
+
+	.product__description {
+		@apply text-lg;
+	}
 }

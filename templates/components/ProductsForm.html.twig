@@ -1,0 +1,27 @@
+<div {{ attributes }}>
+	{{ form_start(form, {
+		'attr': {
+			'data-action': 'live#action:prevent',
+			'data-live-action-param': 'submit',
+			'class': '!block',
+		}
+	}) }}
+		<ul class="grid grid-cols-2 gap-6 my-5">
+			{% for key, option in form.products %}
+				{% set product = form.products.vars.choices[key].data %}
+				<li class="product">
+					{{ form_widget(option) }}
+					<label for="{{ option.vars.id }}">
+						<span class="product__name">{{ product.name }}</span>
+						<span class="product__description">{{ product.description }}</span>
+					</label>
+				</li>
+			{% endfor %}
+		</ul>
+
+		<div class="flex justify-end items-center gap-4">
+			{{ form_errors(form.products) }}
+			{{ form_widget(form.submit) }}
+		</div>
+	{{ form_end(form) }}
+</div>

@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	<div class="bg-zinc-800 flex h-full max-h-dvh">
+		<div class="bg-white flex-grow overflow-scroll p-8 flex items-center">
+			{% block content %}{% endblock %}
+		</div>
+
+		<div class="bg-slate-600 flex-grow w-full max-w-xl h-dvh p-10">
+			{% block sidebar %}{% endblock %}
+		</div>
+	</div>
+
+{% endblock %}

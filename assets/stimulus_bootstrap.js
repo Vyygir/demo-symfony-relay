@@ -1,5 +1,15 @@
 import { startStimulusApp } from '@symfony/stimulus-bundle';
 
 const app = startStimulusApp();
-// register any custom, 3rd party controllers here
-// app.register('some_controller_name', SomeImportedController);
+
+/**
+ * There's _nothing_.
+ *
+ * That's by design. We're obviously relying on controllers from external
+ * sources but, the reality is, I wanted to see if this could be built without
+ * any custom JavaScript whatsoever.
+ *
+ * Why?
+ *
+ * Because I didn't want to drag my teeth against a sand block, that's why.
+ */

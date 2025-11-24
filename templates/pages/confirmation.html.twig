@@ -1,0 +1,15 @@
+{% extends "layouts/default.html.twig" %}
+
+{% block title %}Thanks, {{ lead.forename }}{% endblock %}
+
+{% block content %}
+
+	<div class="w-full max-w-[600px] mx-auto">
+		<h1 class="mb-5 font-bold text-3xl">Thanks!</h1>
+		<h3 class="mb-2 font-bold text-xl">We've got your details, {{ lead.forename }}.</h3>
+		<p>At some point in the future, we may reach out to you to talk to you.</p>
+		<p>Similarly, we also might not. Who knows?</p>
+		<a href="{{ path('app_lead_index') }}" class="!inline-block mt-5 button button--default">Go again?</a>
+	</div>
+
+{% endblock %}

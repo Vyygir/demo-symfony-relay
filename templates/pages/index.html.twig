@@ -1,0 +1,20 @@
+{% extends "layouts/landing.html.twig" %}
+
+{% block content %}
+
+	<div class="bg-white w-full max-w-[500px] pt-10 px-12 pb-12 rounded-lg">
+		<div class="relative">
+			<h3 class="mb-2.5 text-zinc-900 font-bold text-3xl">Find your address</h3>
+			<p>Enter an address, post code, or other location</p>
+
+			<div class="w-full mt-7 mb-4">
+				{{ component('AddressSearchForm') }}
+			</div>
+
+			<span class="block text-sm text-center text-zinc-500">
+				<a href="{{ path('app_lead_products') }}" class="underline hover:no-underline">Skip ahead</a> if you don't have a location
+			</span>
+		</div>
+	</div>
+
+{% endblock %}

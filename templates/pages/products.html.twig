@@ -1,0 +1,14 @@
+{% extends "layouts/default.html.twig" %}
+
+{% block title %}Products{% endblock %}
+
+{% block content %}
+
+	<div class="w-full">
+		<h2 class="font-bold leading-10 text-3xl">What are you looking for?</h2>
+		<p class="leading-10 font-light text-lg">Pick from a generic list of items below that will get attached to your lead when you finally submit the form</p>
+
+		<twig:ProductsForm />
+	</div>
+
+{% endblock %}

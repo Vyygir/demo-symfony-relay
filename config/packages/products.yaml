@@ -1,0 +1,14 @@
+parameters:
+    products:
+        - name: "Bits"
+          description: "Served in packets, delivered in buckets"
+        - name: "Bytes"
+          description: "Two bits don't make a byte"
+        - name: "Commits"
+          description: "Developers aren't serious without these"
+        - name: "Merges"
+          description: "Smush all the code together"
+        - name: "Atoms"
+          description: "Caution: do not disassemble"
+        - name: "Ions"
+          description: "Like a teeny, tiny magnet"
